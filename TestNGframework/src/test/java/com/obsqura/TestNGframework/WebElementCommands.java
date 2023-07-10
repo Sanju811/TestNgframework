@@ -1,5 +1,8 @@
 package com.obsqura.TestNGframework;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -33,6 +36,20 @@ public class WebElementCommands extends Base
 	    String fontColorOfShowMessageButton = showMessage.getCssValue("color");
 	    String fontWeightOfShowMessageButton = showMessage.getCssValue("font-weight");
 	    
+	    int showMessageXaxis = showMessage.getLocation().getX(); //getLocation
+	    int showMessageYaxis = showMessage.getLocation().getY();
+	    int singleInputFieldXaxis = singleInputField.getLocation().getX();
+	    int singleInputFieldYaxis = singleInputField.getLocation().getY();
+	    assertTrue(showMessageYaxis>singleInputFieldYaxis, "ShowMessage button is not aligned below SingleInputField" );
+
+	    
+	    int showMessageButtonHeight = showMessage.getSize().getHeight(); //getSize
+	    int showMessageButtonWidth = showMessage.getSize().getWidth();
+	    int showMessageButtonExpectedHeight = 38;
+	    int showMessageButtonExpectedWidth = 136;
+	    assertEquals(showMessageButtonHeight, showMessageButtonExpectedHeight, "Show message button Height is not" +showMessageButtonExpectedHeight);
+	    assertEquals(showMessageButtonWidth, showMessageButtonExpectedWidth, "Show message button Width is not" +showMessageButtonExpectedWidth);  
+	    
 	}
 	@Test
 	public void webElementTwoInputField()
@@ -55,7 +72,11 @@ public class WebElementCommands extends Base
 	    String backGroundColorOfGetTotalButton = getTotal.getCssValue("background-color");
 	    String fontWeightOfGetTotalButton = getTotal.getCssValue("font-weight");
 	    
-	    
+	    int enterValueAXaxis = enterValueA.getLocation().getX();
+	    int enterValueAYaxis = enterValueA.getLocation().getY();
+	    int enterValueBXaxis = enterValueB.getLocation().getX();
+	    int enterValueBYaxis = enterValueB.getLocation().getY();
+	    assertTrue(enterValueBYaxis>enterValueAYaxis, "EntervalueB is not aligned below EntervalueA");
 
 	}
 
