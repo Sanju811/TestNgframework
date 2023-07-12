@@ -50,19 +50,19 @@ public class Assertions extends Base
 
 		String expectedBackGroundColor = "rgba(0, 123, 255, 1)";
 		String backGroundColorOfShowMessageButton = showMessage.getCssValue("background-color");
-    	softAssert.assertEquals(expectedBackGroundColor,backGroundColorOfShowMessageButton," BackGround color is not" +expectedBackGroundColor);
 
-	    
 		String expectedBorderColor = "rgb(0, 123, 255)";
 	    String borderColorOfShowMessageButton = showMessage.getCssValue("border-color");
-    	softAssert.assertEquals(expectedBorderColor,borderColorOfShowMessageButton," Border color is not" +expectedBorderColor);
 
 	    String expectedfontColor = "rgba(255, 255, 255, 1)";
 	    String fontColorOfShowMessageButton = showMessage.getCssValue("color");
-    	softAssert.assertEquals(expectedfontColor,fontColorOfShowMessageButton," font color is not" +expectedfontColor);
 	    
     	String expectedfontWeight = "400";
 	    String fontWeightOfShowMessageButton = showMessage.getCssValue("font-weight");
+    	
+	    softAssert.assertEquals(expectedBackGroundColor,backGroundColorOfShowMessageButton," BackGround color is not" +expectedBackGroundColor);
+    	softAssert.assertEquals(expectedBorderColor,borderColorOfShowMessageButton," Border color is not" +expectedBorderColor);
+    	softAssert.assertEquals(expectedfontColor,fontColorOfShowMessageButton," font color is not" +expectedfontColor);
     	softAssert.assertEquals(expectedfontWeight,fontWeightOfShowMessageButton," font Weight is not" +expectedfontWeight);
     	softAssert.assertAll();
 	}
@@ -128,7 +128,7 @@ public class Assertions extends Base
 	@Test
 	public void verifyPageSourceOfObsqura()
 	{
-		String pageSource = driver.getCurrentUrl();
+		String pageSource = driver.getPageSource();
 		assertFalse(pageSource.contains("Amazon"), "PageSource Contains Amazon");
 	}
 }
