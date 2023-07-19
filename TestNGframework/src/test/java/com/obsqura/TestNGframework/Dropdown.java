@@ -18,6 +18,16 @@ public class Dropdown extends Base
 		select.selectByVisibleText("Red");
 		select.selectByValue("Yellow");
 		select.selectByIndex(3);
+		List<WebElement> options = select.getOptions();
+		int size = options.size();
+		
+		WebElement multipleDropDown = driver.findElement(By.xpath("//select[@id='multi-select-field']"));
+		Select select2 = new Select(multipleDropDown);
+		boolean isMultipleSelected = select2.isMultiple();
+		select2.selectByVisibleText("Red");
+		select2.selectByValue("Yellow");
+		
+		
 	}
 	@Test
 	public void seleniumDevSelectLanguage()

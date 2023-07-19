@@ -11,18 +11,22 @@ public class FindElements extends Base
 	@Test
 	public void menuOption()
 	{
-		String menuCategory ="Checkbox Demo";
 		List<WebElement> menu = driver.findElements(By.xpath("//li[@class='list-group-item']//a"));
-		
 		for(WebElement menuOption : menu)
 		{
 			String menuText = menuOption.getText();
-			if(menuText.equals(menuCategory));
+			if(menuText.equals("DropDown"));
 			{
 				menuOption.click();
 				break;
 			}
 		}
+	}
+	
+	@Test
+	public void invokeMenuOption(String menuCategory)
+	{
+		
 	}
 
 }
